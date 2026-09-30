@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Comic - ComicCraft
+{% endblock %}
+
+{% block content %}
+
+<section class="create-page">
+
+    <div class="page-header">
+        <h1>✨ Create Your Own Comic</h1>
+        <p>
+            Tell us about your story and let ComicCraft transform
+            your idea into a comic adventure.
+        </p>
+    </div>
+
+    <div class="form-card">
+
+        <!-- IMPORTANT: POST sends the form to /generate -->
+        <form action="/generate" method="POST">
+
+            <!-- Story Prompt -->
+            <div class="form-group full-width">
+                <label for="story_prompt">
+                    ✍️ Story Prompt
+                </label>
+
+                <textarea
+                    id="story_prompt"
+                    name="story_prompt"
+                    rows="5"
+                    placeholder="Example: A young hero discovers a mysterious portal in an old library..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <div class="form-row">
+
+                <!-- Character -->
+                <div class="form-group">
+
+                    <label for="character_name">
+                        👤 Character Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="character_name"
+                        name="character_name"
+                        placeholder="Example: Arjun"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Setting -->
+                <div class="form-group">
+
+                    <label for="setting">
+                        🌍 Setting
+                    </label>
+
+                    <input
+                        type="text"
+                        id="setting"
+                        name="setting"
+                        placeholder="Example: Futuristic Chennai"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <!-- Story Tone -->
+                <div class="form-group">
+
+                    <label for="tone">
+                        🎭 Story Tone
+                    </label>
+
+                    <select
+                        id="tone"
+                        name="tone"
+                        required
+                    >
+
+                        <option value="">
+                            Select a tone
+                        </option>
+
+                        <option value="Adventure">
+                            Adventure
+                        </option>
+
+                        <option value="Comedy">
+                            Comedy
+                        </option>
+
+                        <option value="Fantasy">
+                            Fantasy
+                        </option>
+
+                        <option value="Mystery">
+                            Mystery
+                        </option>
+
+                        <option value="Drama">
+                            Drama
+                        </option>
+
+                        <option value="Action">
+                            Action
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Art Style -->
+                <div class="form-group">
+
+                    <label for="art_style">
+                        🎨 Art Style
+                    </label>
+
+                    <select
+                        id="art_style"
+                        name="art_style"
+                        required
+                    >
+
+                        <option value="">
+                            Select an art style
+                        </option>
+
+                        <option value="Comic Book">
+                            Comic Book
+                        </option>
+
+                        <option value="Anime">
+                            Anime
+                        </option>
+
+                        <option value="Cartoon">
+                            Cartoon
+                        </option>
+
+                        <option value="Manga">
+                            Manga
+                        </option>
+
+                        <option value="Watercolor">
+                            Watercolor
+                        </option>
+
+                        <option value="Realistic">
+                            Realistic
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Submit -->
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="generate-button"
+                >
+                    ✨ Generate My Comic
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Comic Preview - ComicCraft
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-head">
+
+    <div>
+
+        <h1>
+            🎨 Your Comic Is Ready!
+        </h1>
+
+        <p>
+            Here is your AI-generated comic story.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Story Information -->
+
+<div class="comic-grid">
+
+    <article class="panel">
+
+        <h2>📖 Story Details</h2>
+
+        <p>
+            <strong>Character:</strong>
+            {{ comic.character_name }}
+        </p>
+
+        <p>
+            <strong>Setting:</strong>
+            {{ comic.setting }}
+        </p>
+
+        <p>
+            <strong>Tone:</strong>
+            {{ comic.tone }}
+        </p>
+
+        <p>
+            <strong>Art Style:</strong>
+            {{ comic.art_style }}
+        </p>
+
+        <p>
+            <strong>Story:</strong>
+            {{ comic.story_prompt }}
+        </p>
+
+    </article>
+
+</div>
+
+
+<!-- Comic Panels -->
+
+<div class="page-head">
+
+    <div>
+
+        <h1>
+            🖼️ Comic Panels
+        </h1>
+
+    </div>
+
+</div>
+
+
+<div class="comic-grid">
+
+{% for panel in panels %}
+
+    <article class="panel">
+
+        <h2>
+            Panel {{ panel.number }}:
+            {{ panel.title }}
+        </h2>
+
+
+        <!-- Temporary comic image -->
+
+        <div class="comic-image-placeholder">
+
+            <div>
+                🎨
+            </div>
+
+            <p>
+                {{ panel.scene_description }}
+            </p>
+
+        </div>
+
+
+        <p class="scene">
+
+            <strong>Scene:</strong>
+
+            {{ panel.scene_description }}
+
+        </p>
+
+
+        {% if panel.caption %}
+
+        <p>
+
+            <strong>💬 Caption:</strong>
+
+            {{ panel.caption }}
+
+        </p>
+
+        {% endif %}
+
+    </article>
+
+{% endfor %}
+
+</div>
+
+
+<!-- Actions -->
+
+<div class="preview-bottom">
+
+    <a
+        href="/"
+        class="button secondary"
+    >
+        ← Create Another Comic
+    </a>
+
+</div>
+
+
+{% endblock %}
